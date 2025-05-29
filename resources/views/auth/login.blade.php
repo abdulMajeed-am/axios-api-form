@@ -3,11 +3,11 @@
 
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @vite(['resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
-    <div>
+        <div class="container">
         <h1>Please Login</h1>
 
         <form onsubmit="event.preventDefault(); submitForm()">
@@ -28,22 +28,6 @@
 
         <hr>
 
-        <form onsubmit="event.preventDefault(); getBankDetails()">
-            <div>
-                <label>Enter Bank Id</label>
-                <input type="text" id="bank_id" name="bank_id" required>
-            </div>
-
-            <div>
-                <button type="submit">Get Bank Details</button>
-            </div>
-        </form>
-
-        <div id="bankDetailsSection" style="margin-top: 20px; display: none;">
-            <h3>Bank Details</h3>
-            <ul id="bankDetailsList"></ul>
-        </div>
-
 
     </div>
 
@@ -61,7 +45,8 @@
                         console.log('Login successful:', response.data);
                         localStorage.setItem('token', response.data.token);
 
-                        // {{-- window.location.href = '{{ route('dashboard') }}'; --}}
+                        window.location.href = '/dashboard';
+
                     }
                 })
                 .catch(error => {
@@ -73,30 +58,8 @@
                 });
         }
 
-        function getBankDetails() {
-            const formData = new FormData();
-
-            formData.append('bank_id', document.getElementById('bank_id').value);
-
-            axios.post('{{ route('api.bank_details') }}', formData, {
-                    headers: {
-                        'Authorization': 'Bearer ' + localStorage.getItem('token'),
-                    }
-                })
-                .then(response => {
-                    if (response.status === 200) {
-                        console.log('Get Data successful:', response.data);
-                    }
-                })
-                .catch(error => {
-                    if (error.status === 401) {
-                        alert('Invalid Token');
-                    } else {
-                        console.error('Error during login:', error);
-                    }
-                });
-        }
     </script>
+    </div>
 </body>
 
 </html>
