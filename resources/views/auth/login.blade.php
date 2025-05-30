@@ -7,7 +7,7 @@
 </head>
 
 <body>
-        <div class="container">
+    <div class="container">
         <h1>Please Login</h1>
 
         <form onsubmit="event.preventDefault(); submitForm()">
@@ -25,10 +25,7 @@
                 <button type="submit">Login</button>
             </div>
         </form>
-
         <hr>
-
-
     </div>
 
     <script>
@@ -57,7 +54,6 @@
                     }
                 });
         }
-
     </script>
     </div>
 </body>

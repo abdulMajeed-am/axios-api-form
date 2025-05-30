@@ -3,8 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 /* Reset default browser styles */
 * {
     margin: 0;
@@ -48,7 +46,8 @@ label {
 input[type="email"],
 input[type="password"],
 input[type="text"],
-input[type="date"] {
+input[type="date"],
+select {
     width: 100%;
     padding: 10px 14px;
     margin-bottom: 15px;
@@ -56,9 +55,12 @@ input[type="date"] {
     border-radius: 6px;
     font-size: 15px;
     transition: border-color 0.2s;
+    background: #fff;
+    appearance: none; /* Remove default browser styling for select */
 }
 
-input:focus {
+input:focus,
+select:focus {
     border-color: #3498db;
     outline: none;
 }
@@ -103,14 +105,61 @@ ul#bankDetailsList li {
     padding: 8px 0;
     border-bottom: 1px solid #ccc;
 }
-.logoutButton{
+
+.logoutButton {
     background-color: #e74c3c;
     color: white;
     padding: 10px 18px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
 }
+
 .logoutButton:hover {
     background-color: #c0392b;
+}
+.table-container {
+    max-width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    background: #ecf0f1;
+    padding: 15px;
+}
+
+.bank-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.bank-table th,
+.bank-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.bank-table th {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+.bank-table td {
+    background-color: #fff;
+}
+
+.bank-table tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+.bank-table tr:hover td {
+    background-color: #e6f3fa;
 }
