@@ -12,7 +12,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('banks', function (Blueprint $table) {
-            $table->string('bank_id', 50)->primary();
+            $table->id();
+            $table->string('bank_id', 50)->unique();
             $table->integer('enum_id')->nullable();
             $table->string('bank_name', 255)->nullable();
             $table->string('taluk_town', 255)->nullable();

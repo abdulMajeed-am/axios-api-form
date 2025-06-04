@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class FetchBankController extends Controller
 {
+    //for displaying bank details
     public function getBankDetails(Request $request)
     {
         try {
@@ -63,6 +64,7 @@ class FetchBankController extends Controller
         }
     }
 
+    //drop down list of banks with branches
     public function listBanks()
     {
         try {
@@ -100,17 +102,17 @@ class FetchBankController extends Controller
                     'gst_no' => $bank->gst_no ?? 'Not provided',
                     'invoice_to' => $bank->invoice_to ?? 'Not provided',
                     'bank_address' => $bank->bank_address ?? 'Not provided',
-                    'contact_person' => $bank->contact_person ?? 'Not provided',
-                    'contact_number' => $bank->contact_number ?? 'Not provided',
+                    // 'contact_person' => $bank->contact_person ?? 'Not provided',
+                    // 'contact_number' => $bank->contact_number ?? 'Not provided',
                     'customer_type' => $bank->customer_type ?? 'Not provided',
                     'version_type' => $bank->version_type ?? 'Not provided',
-                    'license_expiry_date' => $bank->license_expiry_date ?? 'Not set',
-                    'business_amount' => $bank->business_amount ?? 0.00,
-                    'maintenance_amount' => $bank->maintenance_amount ?? 0.00,
-                    'maintenance_freq' => $bank->maintenance_freq ?? 'Not provided',
+                    // 'license_expiry_date' => $bank->license_expiry_date ?? 'Not set',
+                    // 'business_amount' => $bank->business_amount ?? 0.00,
+                    // 'maintenance_amount' => $bank->maintenance_amount ?? 0.00,
+                    // 'maintenance_freq' => $bank->maintenance_freq ?? 'Not provided',
                     'our_support_person' => $bank->our_support_person ?? 'Not assigned',
-                    'created_at' => $bank->created_at ? $bank->created_at->toDateTimeString() : null,
-                    'updated_at' => $bank->updated_at ? $bank->updated_at->toDateTimeString() : null,
+                    // 'created_at' => $bank->created_at ? $bank->created_at->toDateTimeString() : null,
+                    // 'updated_at' => $bank->updated_at ? $bank->updated_at->toDateTimeString() : null,
                     'branches' => $bank->branches->map(function ($branch) {
                         return [
                             'id' => $branch->id,
